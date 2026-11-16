@@ -37,7 +37,7 @@ animation:grain .9s steps(4) infinite}
 /* hero */
 .hero{position:relative;height:100svh;min-height:620px;overflow:hidden;display:flex;align-items:flex-end}
 .hero .bg{position:absolute;inset:0;animation:drone 26s ease-in-out infinite alternate}
-@keyframes drone{0%{transform:scale(1.18) translate(-3%,2%)}100%{transform:scale(1.04) translate(2%,-1%)}}
+@keyframes drone{0%{transform:scale(1.07) translate(-2%,1%)}100%{transform:scale(1.03) translate(1%,-.5%)}}
 .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,13,9,.55) 0%,rgba(7,13,9,.1) 35%,rgba(7,13,9,.85) 100%)}
 .leak{position:absolute;inset:0;z-index:2;mix-blend-mode:screen;pointer-events:none;background:radial-gradient(ellipse at 10% 30%,rgba(255,170,80,.35),transparent 55%);animation:leak 9s ease-in-out infinite alternate}
 @keyframes leak{to{opacity:.35;transform:translateX(6%)}}
@@ -227,7 +227,7 @@ function onScroll(){
   nav.classList.toggle('solid',scrollY>60);
   const vh=innerHeight;
   par.forEach(el=>{const r=el.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;
-    const p=(r.top+r.height/2-vh/2)/vh;el.style.transform=`translateY(${p*-6}%) scale(${1.12-Math.abs(p)*.08})`});
+    const p=(r.top+r.height/2-vh/2)/vh;el.style.transform=`translateY(${p*-6}%)`});
 }
 addEventListener('scroll',onScroll,{passive:true});onScroll();
 
