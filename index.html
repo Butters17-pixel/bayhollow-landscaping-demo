@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bayhollow Landscape Co. | Landscaping in Wall Township, NJ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#070d09;--forest:#0d1f14;--moss:#16301f;--gold:#d9b46a;--cream:#f2ead8;--mute:#9aa89d}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}body{background:var(--ink);color:var(--cream);font-family:Inter,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+.serif{font-family:Fraunces,serif;font-weight:300;letter-spacing:-.02em}
+.kicker{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold)}
+.wrap{max-width:1200px;margin:auto;padding:0 28px}
+
+/* film grain */
+body::after{content:"";position:fixed;inset:-50%;z-index:100;pointer-events:none;opacity:.07;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+animation:grain .9s steps(4) infinite}
+@keyframes grain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-2%)}}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.4s}
+.nav.solid{background:rgba(7,13,9,.82);backdrop-filter:blur(12px)}
+.nav-in{display:flex;justify-content:space-between;align-items:center;height:76px}
+.logo{font-family:Fraunces,serif;font-size:1.35rem;font-weight:600}
+.logo i{color:var(--gold);font-style:italic;font-weight:300}
+.links{display:flex;gap:34px;align-items:center;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+.links a:not(.btn){opacity:.75;transition:.2s}.links a:hover{opacity:1}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;padding:14px 26px;border-radius:2px;border:0;cursor:pointer;transition:.3s}
+.btn:hover{background:var(--cream)}
+.btn.line{background:transparent;color:var(--cream);border:1px solid rgba(242,234,216,.4)}.btn.line:hover{border-color:var(--cream);background:rgba(242,234,216,.08)}
+
+/* hero */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;display:flex;align-items:flex-end}
+.hero .bg{position:absolute;inset:0;animation:drone 26s ease-in-out infinite alternate}
+@keyframes drone{0%{transform:scale(1.18) translate(-3%,2%)}100%{transform:scale(1.04) translate(2%,-1%)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,13,9,.55) 0%,rgba(7,13,9,.1) 35%,rgba(7,13,9,.85) 100%)}
+.leak{position:absolute;inset:0;z-index:2;mix-blend-mode:screen;pointer-events:none;background:radial-gradient(ellipse at 10% 30%,rgba(255,170,80,.35),transparent 55%);animation:leak 9s ease-in-out infinite alternate}
+@keyframes leak{to{opacity:.35;transform:translateX(6%)}}
+.bars{position:absolute;left:0;right:0;height:0;background:#000;z-index:3;animation:bars 1.8s .2s cubic-bezier(.7,0,.2,1) forwards}
+.bars.t{top:0}.bars.b{bottom:0}
+@keyframes bars{to{height:7vh}}
+.hero-in{position:relative;z-index:4;padding-bottom:calc(7vh + 64px);width:100%}
+.hero h1{font-size:clamp(3.2rem,9vw,8.5rem);line-height:.92;margin:18px 0 24px}
+.hero h1 span{display:block;opacity:0;transform:translateY(40px);animation:rise 1.4s cubic-bezier(.2,.7,.2,1) forwards}
+.hero h1 span:nth-child(2){animation-delay:.25s;font-style:italic;color:var(--gold)}
+.hero .kicker,.hero p,.hero .cta{opacity:0;animation:rise 1.4s .6s cubic-bezier(.2,.7,.2,1) forwards}
+.hero p{max-width:460px;font-size:1.08rem;color:#d6d0c0;margin-bottom:34px;animation-delay:.8s}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;animation-delay:1s}
+@keyframes rise{to{opacity:1;transform:none}}
+.scroll-cue{position:absolute;right:28px;bottom:calc(7vh + 28px);z-index:4;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;writing-mode:vertical-rl;color:var(--mute)}
+.scroll-cue::after{content:"";display:block;width:1px;height:60px;margin:14px auto 0;background:linear-gradient(var(--gold),transparent);animation:cue 2s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* intro statement */
+.statement{padding:150px 0 120px;text-align:center}
+.statement h2{font-size:clamp(1.9rem,4.2vw,3.6rem);line-height:1.15;max-width:950px;margin:22px auto 0}
+.statement em{color:var(--gold)}
+
+/* scenes */
+.scene{position:relative;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:center}
+.scene .bg{position:absolute;inset:-8% 0;will-change:transform}
+.scene::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(7,13,9,.92) 0%,rgba(7,13,9,.55) 45%,rgba(7,13,9,.05) 100%)}
+.scene.r::before{background:linear-gradient(270deg,rgba(7,13,9,.92) 0%,rgba(7,13,9,.55) 45%,rgba(7,13,9,.05) 100%)}
+.scene .copy{position:relative;z-index:2;max-width:470px}
+.scene.r .wrap{display:flex;justify-content:flex-end}
+.num{font-family:Fraunces,serif;font-size:.95rem;color:var(--gold);font-style:italic}
+.scene h3{font-family:Fraunces,serif;font-weight:300;font-size:clamp(2.4rem,5vw,4.4rem);line-height:1;margin:14px 0 18px}
+.scene p{color:#cfc9b8}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(36px);transition:1.2s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.15s}.rv.d2{transition-delay:.3s}
+
+/* before/after */
+.ba-sec{padding:140px 0;background:var(--forest)}
+.ba-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:48px;flex-wrap:wrap}
+.ba-head h2{font-size:clamp(2.2rem,4.5vw,3.8rem);line-height:1.05;margin-top:14px}
+.ba-head p{color:var(--mute);max-width:340px}
+.ba{position:relative;aspect-ratio:3/2;overflow:hidden;cursor:ew-resize;user-select:none;touch-action:pan-y;box-shadow:0 40px 90px rgba(0,0,0,.55)}
+.ba .after{position:absolute;inset:0;clip-path:inset(0 0 0 50%)}
+.ba .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--cream);transform:translateX(-1px)}
+.ba .handle::after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:var(--cream);color:var(--ink);display:grid;place-items:center;font-size:.8rem;letter-spacing:2px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.ba .tag{position:absolute;top:22px;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;padding:8px 14px;background:rgba(7,13,9,.65);backdrop-filter:blur(6px)}
+.ba .tag.l{left:22px}.ba .tag.rr{right:22px;color:var(--gold)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(242,234,216,.12);border-bottom:1px solid rgba(242,234,216,.12)}
+.stats div{padding:56px 20px;text-align:center;border-right:1px solid rgba(242,234,216,.12)}
+.stats div:last-child{border:0}
+.stats b{display:block;font-family:Fraunces,serif;font-weight:300;font-size:clamp(1.15rem,2.2vw,1.7rem);color:var(--gold);line-height:1.15}
+.stats span{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+
+/* film strip gallery */
+.gal{padding:140px 0 120px}
+.gal h2{font-size:clamp(2.2rem,4.5vw,3.8rem);margin:14px 0 46px}
+.strip{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 28px 18px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip figure{flex:0 0 min(78vw,520px);aspect-ratio:4/5;overflow:hidden;scroll-snap-align:center;position:relative}
+.strip img{transition:transform 1.4s cubic-bezier(.2,.7,.2,1);filter:saturate(.9) contrast(1.05)}
+.strip figure:hover img{transform:scale(1.06)}
+.strip figcaption{position:absolute;left:18px;bottom:16px;font-family:Fraunces,serif;font-style:italic;font-size:1.1rem}
+.strip figure::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(7,13,9,.8))}
+.strip figcaption{z-index:1}
+.hint{text-align:right;color:var(--mute);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;margin-top:10px}
+
+/* quote */
+.quote{position:relative;padding:150px 0;overflow:hidden}
+.quote .bg{position:absolute;inset:0;opacity:.28}
+.quote::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(var(--ink),rgba(7,13,9,.7),var(--ink))}
+.q-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.q-in h2{font-size:clamp(2.6rem,5vw,4.6rem);line-height:1;margin:16px 0 22px}
+.q-in h2 em{color:var(--gold)}
+.contact{color:var(--mute);line-height:2}
+form{display:grid;gap:14px;background:rgba(13,31,20,.75);backdrop-filter:blur(10px);padding:36px;border:1px solid rgba(242,234,216,.1)}
+input,textarea{background:transparent;border:0;border-bottom:1px solid rgba(242,234,216,.25);color:var(--cream);padding:14px 2px;font:inherit;outline:none;transition:.3s}
+input:focus,textarea:focus{border-color:var(--gold)}
+input::placeholder,textarea::placeholder{color:var(--mute)}
+form .btn{justify-content:center;margin-top:10px}
+footer{text-align:center;padding:34px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#5d6b61;border-top:1px solid rgba(242,234,216,.08)}
+
+@media(max-width:860px){
+ .links a:not(.btn){display:none}.logo{font-size:1.1rem;white-space:nowrap}.btn{white-space:nowrap}.nav .btn{padding:11px 16px;font-size:.72rem}.nav-in{height:64px}.hero .kicker{font-size:.62rem;letter-spacing:.2em}.hero-in{padding-bottom:calc(7vh + 40px)}.hero h1{font-size:3.1rem}.hero .cta .btn{width:100%;justify-content:center}
+ .scene::before,.scene.r::before{background:linear-gradient(0deg,rgba(7,13,9,.95) 0%,rgba(7,13,9,.6) 50%,rgba(7,13,9,.15) 100%)}
+ .scene{align-items:flex-end;padding-bottom:70px}.scene.r .wrap{justify-content:flex-start}
+ .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid rgba(242,234,216,.12)}
+ .q-in{grid-template-columns:1fr;gap:40px}
+ .statement{padding:100px 0 80px}.ba-sec,.gal{padding:90px 0}.quote{padding:100px 0}
+ .scroll-cue{display:none}.ba{aspect-ratio:4/5}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.hero h1 span,.hero .kicker,.hero p,.hero .cta,.rv{opacity:1;transform:none}.bars{height:7vh}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav"><div class="wrap nav-in">
+  <a class="logo" href="#">Bayhollow <i>Landscape Co.</i></a>
+  <nav class="links"><a href="#services">Services</a><a href="#transform">Transformations</a><a href="#work">Work</a><a href="#quote" class="btn">Free Quote</a></nav>
+</div></header>
+
+<section class="hero">
+  <div class="bg"><img src="images/hero.jpg" alt="Landscaped home at golden hour"></div>
+  <div class="leak"></div><div class="bars t"></div><div class="bars b"></div>
+  <div class="wrap hero-in">
+    <p class="kicker">Landscape Design · Lawn Care · Hardscapes</p>
+    <h1 class="serif"><span>Ground worth</span><span>coming home to.</span></h1>
+    <p>Lawns, gardens and outdoor living spaces crafted for Wall Township's finest homes.</p>
+    <div class="cta"><a href="#quote" class="btn">Get a Free Quote →</a><a href="#transform" class="btn line">See the Transformation</a></div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<section class="statement"><div class="wrap">
+  <p class="kicker rv">Monmouth County, NJ</p>
+  <h2 class="serif rv d1">We don't just cut grass. We shape the <em>first impression</em> of every home we touch.</h2>
+</div></section>
+
+<div id="services">
+<section class="scene"><div class="bg" data-par><img src="images/lawn.jpg" alt="Lawn mowing"></div>
+  <div class="wrap"><div class="copy rv"><span class="num">01 —</span><h3>Lawn Care</h3><p>Weekly mowing, feeding and edging that keeps every stripe sharp from spring to frost.</p></div></div></section>
+<section class="scene r"><div class="bg" data-par><img src="images/flowers.jpg" alt="Garden beds"></div>
+  <div class="wrap"><div class="copy rv"><span class="num">02 —</span><h3>Design & Install</h3><p>Planting plans built around your light, soil and style, then installed in days.</p></div></div></section>
+<section class="scene"><div class="bg" data-par><img src="images/patio.jpg" alt="Patio with fire pit"></div>
+  <div class="wrap"><div class="copy rv"><span class="num">03 —</span><h3>Hardscapes</h3><p>Patios, fire pits and walls in natural stone, made for long summer nights.</p></div></div></section>
+<section class="scene r"><div class="bg" data-par><img src="images/shrubs.jpg" alt="Hedge trimming"></div>
+  <div class="wrap"><div class="copy rv"><span class="num">04 —</span><h3>Tree & Shrub</h3><p>Precision pruning and seasonal care that keeps your landscape healthy and tidy.</p></div></div></section>
+</div>
+
+<section class="ba-sec" id="transform"><div class="wrap">
+  <div class="ba-head">
+    <div><p class="kicker rv">The Transformation</p><h2 class="serif rv d1">Same yard.<br><em style="color:var(--gold)">Six weeks later.</em></h2></div>
+    <p class="rv d2">Drag the slider to see an overgrown lot become an outdoor room.</p>
+  </div>
+  <div class="ba rv" id="ba">
+    <img src="images/before.jpg" alt="Before">
+    <div class="after"><img src="images/after.jpg" alt="After"></div>
+    <div class="handle"></div><span class="tag l">Before</span><span class="tag rr">After</span>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="stats">
+  <div class="rv"><b>Free on-site estimates</b><span>No obligation</span></div>
+  <div class="rv d1"><b>Serving Monmouth County</b><span>Wall Township &amp; nearby</span></div>
+  <div class="rv d2"><b>Call or text</b><span>(203) 581-2425</span></div>
+  <div class="rv"><b>Spring to snow season</b><span>Year-round care</span></div>
+</div></div>
+
+<section class="gal" id="work">
+  <div class="wrap"><p class="kicker rv">Selected Work</p><h2 class="serif rv d1">Recent projects</h2></div>
+  <div class="strip">
+    <figure><img src="images/after.jpg" alt=""><figcaption>Backyard Retreat</figcaption></figure>
+    <figure><img src="images/patio.jpg" alt=""><figcaption>Fire Pit Terrace</figcaption></figure>
+    <figure><img src="images/about.jpg" alt=""><figcaption>Stone Wall Garden</figcaption></figure>
+    <figure><img src="images/hero.jpg" alt=""><figcaption>Estate Front Lawn</figcaption></figure>
+    <figure><img src="images/flowers.jpg" alt=""><figcaption>Perennial Border</figcaption></figure>
+  </div>
+  <div class="wrap"><p class="hint">Swipe →</p></div>
+</section>
+
+<section class="quote" id="quote">
+  <div class="bg"><img src="images/about.jpg" alt=""></div>
+  <div class="wrap q-in">
+    <div class="rv"><p class="kicker">Free Estimate</p><h2 class="serif">Let's build<br><em>your scene.</em></h2>
+      <p class="contact"><a href="tel:+12035812425">(203) 581-2425</a><br><a href="mailto:johnnypearson1717@gmail.com">johnnypearson1717@gmail.com</a><br>Wall Township, NJ</p></div>
+    <form class="rv d1" id="f" method="POST" action="https://formsubmit.co/johnnypearson1717@gmail.com">
+      <input type="hidden" name="_subject" value="New Bayhollow quote request">
+      <input type="hidden" name="_captcha" value="false">
+      <input name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input name="phone" placeholder="Phone">
+      <textarea name="message" rows="3" placeholder="Tell us about your yard"></textarea>
+      <button type="submit" class="btn">Request My Quote →</button>
+    </form>
+  </div>
+</section>
+<footer>© 2026 Bayhollow Landscape Co. · Website by Boardwalk Digital</footer>
+
+<script>
+const nav=document.getElementById('nav');
+const par=[...document.querySelectorAll('[data-par]')];
+function onScroll(){
+  nav.classList.toggle('solid',scrollY>60);
+  const vh=innerHeight;
+  par.forEach(el=>{const r=el.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;
+    const p=(r.top+r.height/2-vh/2)/vh;el.style.transform=`translateY(${p*-6}%) scale(${1.12-Math.abs(p)*.08})`});
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');
+  io.unobserve(e.target)}}),{threshold:.2});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+const ba=document.getElementById('ba'),aft=ba.querySelector('.after'),h=ba.querySelector('.handle');let drag=false;
+function set(x){const r=ba.getBoundingClientRect();const p=Math.max(0,Math.min(100,(x-r.left)/r.width*100));aft.style.clipPath=`inset(0 0 0 ${p}%)`;h.style.left=p+'%'}
+ba.addEventListener('pointerdown',e=>{drag=true;set(e.clientX)});
+addEventListener('pointermove',e=>{if(drag)set(e.clientX)});
+addEventListener('pointerup',()=>drag=false);
+
+</script>
+</body>
+</html>
