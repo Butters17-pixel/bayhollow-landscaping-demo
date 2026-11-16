@@ -17,7 +17,7 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1200px;margin:auto;padding:0 28px}
 
 /* film grain */
-body::after{content:"";position:fixed;inset:-50%;z-index:100;pointer-events:none;opacity:.07;
+body::after{content:"";position:fixed;inset:-10%;z-index:100;pointer-events:none;opacity:.06;will-change:transform;
 background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 animation:grain .9s steps(4) infinite}
 @keyframes grain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-3%)}75%{transform:translate(-2%,-2%)}}
@@ -37,15 +37,17 @@ animation:grain .9s steps(4) infinite}
 /* hero */
 .hero{position:relative;height:100svh;min-height:620px;overflow:hidden;display:flex;align-items:flex-end}
 .hero .bg{position:absolute;inset:0;animation:drone 26s ease-in-out infinite alternate}
-@keyframes drone{0%{transform:scale(1.07) translate(-2%,1%)}100%{transform:scale(1.03) translate(1%,-.5%)}}
+@keyframes drone{0%{transform:scale(1.04) translate(-1%,.5%)}100%{transform:scale(1.01) translate(.5%,-.25%)}}
 .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,13,9,.55) 0%,rgba(7,13,9,.1) 35%,rgba(7,13,9,.85) 100%)}
-.leak{position:absolute;inset:0;z-index:2;mix-blend-mode:screen;pointer-events:none;background:radial-gradient(ellipse at 10% 30%,rgba(255,170,80,.35),transparent 55%);animation:leak 9s ease-in-out infinite alternate}
-@keyframes leak{to{opacity:.35;transform:translateX(6%)}}
+.leak{position:absolute;inset:0 -20% 0 -20%;z-index:2;mix-blend-mode:screen;pointer-events:none;background:radial-gradient(ellipse 45% 70% at 30% 30%,rgba(255,170,80,.35),transparent 100%);animation:leak 9s ease-in-out infinite alternate}
+@keyframes leak{to{opacity:.35;transform:translateX(8%)}}
 .bars{position:absolute;left:0;right:0;height:0;background:#000;z-index:3;animation:bars 1.8s .2s cubic-bezier(.7,0,.2,1) forwards}
 .bars.t{top:0}.bars.b{bottom:0}
 @keyframes bars{to{height:7vh}}
 .hero-in{position:relative;z-index:4;padding-bottom:calc(7vh + 64px);width:100%}
-.hero h1{font-size:clamp(3.2rem,9vw,8.5rem);line-height:.92;margin:18px 0 24px}
+.hero h1{font-size:clamp(3.2rem,9vw,8.5rem);line-height:.92;margin:18px 0 24px;text-shadow:0 4px 30px rgba(0,0,0,.45)}
+.hero .kicker{max-width:none;white-space:nowrap}
+.hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 65% at 15% 75%,rgba(7,13,9,.6),transparent 70%)}
 .hero h1 span{display:block;opacity:0;transform:translateY(40px);animation:rise 1.4s cubic-bezier(.2,.7,.2,1) forwards}
 .hero h1 span:nth-child(2){animation-delay:.25s;font-style:italic;color:var(--gold)}
 .hero .kicker,.hero p,.hero .cta{opacity:0;animation:rise 1.4s .6s cubic-bezier(.2,.7,.2,1) forwards}
@@ -63,7 +65,7 @@ animation:grain .9s steps(4) infinite}
 
 /* scenes */
 .scene{position:relative;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:center}
-.scene .bg{position:absolute;inset:-8% 0;will-change:transform}
+.scene .bg{position:absolute;inset:-4% 0;will-change:transform}
 .scene::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(7,13,9,.92) 0%,rgba(7,13,9,.55) 45%,rgba(7,13,9,.05) 100%)}
 .scene.r::before{background:linear-gradient(270deg,rgba(7,13,9,.92) 0%,rgba(7,13,9,.55) 45%,rgba(7,13,9,.05) 100%)}
 .scene .copy{position:relative;z-index:2;max-width:470px}
@@ -84,7 +86,8 @@ animation:grain .9s steps(4) infinite}
 .ba-head p{color:var(--mute);max-width:340px}
 .ba{position:relative;aspect-ratio:3/2;overflow:hidden;cursor:ew-resize;user-select:none;touch-action:pan-y;box-shadow:0 40px 90px rgba(0,0,0,.55)}
 .ba .after{position:absolute;inset:0;clip-path:inset(0 0 0 50%)}
-.ba .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--cream);transform:translateX(-1px)}
+.ba .handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:var(--cream);transform:translateX(-1px);pointer-events:none}
+.ba:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
 .ba .handle::after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:var(--cream);color:var(--ink);display:grid;place-items:center;font-size:.8rem;letter-spacing:2px;box-shadow:0 8px 30px rgba(0,0,0,.4)}
 .ba .tag{position:absolute;top:22px;font-size:.7rem;letter-spacing:.28em;text-transform:uppercase;padding:8px 14px;background:rgba(7,13,9,.65);backdrop-filter:blur(6px)}
 .ba .tag.l{left:22px}.ba .tag.rr{right:22px;color:var(--gold)}
@@ -95,6 +98,9 @@ animation:grain .9s steps(4) infinite}
 .stats div:last-child{border:0}
 .stats b{display:block;font-family:Fraunces,serif;font-weight:300;font-size:clamp(1.15rem,2.2vw,1.7rem);color:var(--gold);line-height:1.15}
 .stats span{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.stats a{color:var(--cream)}.stats a:hover{color:var(--gold)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 
 /* film strip gallery */
 .gal{padding:140px 0 120px}
@@ -125,7 +131,7 @@ form .btn{justify-content:center;margin-top:10px}
 footer{text-align:center;padding:34px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#5d6b61;border-top:1px solid rgba(242,234,216,.08)}
 
 @media(max-width:860px){
- .links a:not(.btn){display:none}.logo{font-size:1.1rem;white-space:nowrap}.btn{white-space:nowrap}.nav .btn{padding:11px 16px;font-size:.72rem}.nav-in{height:64px}.hero .kicker{font-size:.62rem;letter-spacing:.2em}.hero-in{padding-bottom:calc(7vh + 40px)}.hero h1{font-size:3.1rem}.hero .cta .btn{width:100%;justify-content:center}
+ .links a:not(.btn){display:none}.logo{font-size:1.1rem;white-space:nowrap}.btn{white-space:nowrap}.nav .btn{padding:11px 16px;font-size:.72rem}.nav-in{height:64px}.hero .kicker{font-size:.62rem;letter-spacing:.2em}.hero-in{padding-bottom:calc(7vh + 40px)}.hero h1{font-size:3.1rem}.hero .kicker{white-space:normal}.hero-scrim{background:linear-gradient(0deg,rgba(7,13,9,.92) 0%,rgba(7,13,9,.6) 55%,rgba(7,13,9,.15) 100%)}.hero h1 span:nth-child(2){color:#e8c47e}.hero .cta .btn{width:100%;justify-content:center}
  .scene::before,.scene.r::before{background:linear-gradient(0deg,rgba(7,13,9,.95) 0%,rgba(7,13,9,.6) 50%,rgba(7,13,9,.15) 100%)}
  .scene{align-items:flex-end;padding-bottom:70px}.scene.r .wrap{justify-content:flex-start}
  .stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid rgba(242,234,216,.12)}
@@ -144,8 +150,8 @@ footer{text-align:center;padding:34px;font-size:.72rem;letter-spacing:.2em;text-
 </div></header>
 
 <section class="hero">
-  <div class="bg"><img src="images/hero.jpg" alt="Landscaped home at golden hour"></div>
-  <div class="leak"></div><div class="bars t"></div><div class="bars b"></div>
+  <div class="bg"><img src="images/hero.webp" alt="Landscaped home at golden hour" fetchpriority="high" decoding="async"></div>
+  <div class="hero-scrim"></div><div class="leak"></div><div class="bars t"></div><div class="bars b"></div>
   <div class="wrap hero-in">
     <p class="kicker">Landscape Design · Lawn Care · Hardscapes</p>
     <h1 class="serif"><span>Ground worth</span><span>coming home to.</span></h1>
@@ -161,24 +167,24 @@ footer{text-align:center;padding:34px;font-size:.72rem;letter-spacing:.2em;text-
 </div></section>
 
 <div id="services">
-<section class="scene"><div class="bg" data-par><img src="images/lawn.jpg" alt="Lawn mowing"></div>
+<section class="scene"><div class="bg" data-par><img src="images/lawn.webp" alt="Lawn mowing" loading="lazy" decoding="async"></div>
   <div class="wrap"><div class="copy rv"><span class="num">01 —</span><h3>Lawn Care</h3><p>Weekly mowing, feeding and edging that keeps every stripe sharp from spring to frost.</p></div></div></section>
-<section class="scene r"><div class="bg" data-par><img src="images/flowers.jpg" alt="Garden beds"></div>
+<section class="scene r"><div class="bg" data-par><img src="images/flowers.webp" alt="Garden beds" loading="lazy" decoding="async"></div>
   <div class="wrap"><div class="copy rv"><span class="num">02 —</span><h3>Design & Install</h3><p>Planting plans built around your light, soil and style, then installed in days.</p></div></div></section>
-<section class="scene"><div class="bg" data-par><img src="images/patio.jpg" alt="Patio with fire pit"></div>
+<section class="scene"><div class="bg" data-par><img src="images/patio.webp" alt="Patio with fire pit" loading="lazy" decoding="async"></div>
   <div class="wrap"><div class="copy rv"><span class="num">03 —</span><h3>Hardscapes</h3><p>Patios, fire pits and walls in natural stone, made for long summer nights.</p></div></div></section>
-<section class="scene r"><div class="bg" data-par><img src="images/shrubs.jpg" alt="Hedge trimming"></div>
+<section class="scene r"><div class="bg" data-par><img src="images/shrubs.webp" alt="Hedge trimming" loading="lazy" decoding="async"></div>
   <div class="wrap"><div class="copy rv"><span class="num">04 —</span><h3>Tree & Shrub</h3><p>Precision pruning and seasonal care that keeps your landscape healthy and tidy.</p></div></div></section>
 </div>
 
 <section class="ba-sec" id="transform"><div class="wrap">
   <div class="ba-head">
     <div><p class="kicker rv">The Transformation</p><h2 class="serif rv d1">Same yard.<br><em style="color:var(--gold)">Six weeks later.</em></h2></div>
-    <p class="rv d2">Drag the slider to see an overgrown lot become an outdoor room.</p>
+    <p class="rv d2">Drag (or use arrow keys on) the slider to see an overgrown lot become an outdoor room.</p>
   </div>
-  <div class="ba rv" id="ba">
-    <img src="images/before.jpg" alt="Before">
-    <div class="after"><img src="images/after.jpg" alt="After"></div>
+  <div class="ba rv" id="ba" tabindex="0" role="slider" aria-label="Before and after comparison. Use arrow keys to move the divider." aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="50% after">
+    <img src="images/before.webp" alt="Overgrown backyard before the makeover" loading="lazy" decoding="async">
+    <div class="after"><img src="images/after.webp" alt="The same backyard after: new lawn, beds and patio" loading="lazy" decoding="async"></div>
     <div class="handle"></div><span class="tag l">Before</span><span class="tag rr">After</span>
   </div>
 </div></section>
@@ -186,34 +192,35 @@ footer{text-align:center;padding:34px;font-size:.72rem;letter-spacing:.2em;text-
 <div class="wrap"><div class="stats">
   <div class="rv"><b>Free on-site estimates</b><span>No obligation</span></div>
   <div class="rv d1"><b>Serving Monmouth County</b><span>Wall Township &amp; nearby</span></div>
-  <div class="rv d2"><b>Call or text</b><span>(203) 581-2425</span></div>
+  <div class="rv d2"><b>Call or text</b><span><a href="tel:+12035812425">(203) 581-2425</a></span></div>
   <div class="rv"><b>Spring to snow season</b><span>Year-round care</span></div>
 </div></div>
 
 <section class="gal" id="work">
   <div class="wrap"><p class="kicker rv">Selected Work</p><h2 class="serif rv d1">Recent projects</h2></div>
   <div class="strip">
-    <figure><img src="images/after.jpg" alt=""><figcaption>Backyard Retreat</figcaption></figure>
-    <figure><img src="images/patio.jpg" alt=""><figcaption>Fire Pit Terrace</figcaption></figure>
-    <figure><img src="images/about.jpg" alt=""><figcaption>Stone Wall Garden</figcaption></figure>
-    <figure><img src="images/hero.jpg" alt=""><figcaption>Estate Front Lawn</figcaption></figure>
-    <figure><img src="images/flowers.jpg" alt=""><figcaption>Perennial Border</figcaption></figure>
+    <figure><img src="images/after.webp" alt="Backyard retreat with fresh lawn and patio" loading="lazy" decoding="async"><figcaption>Backyard Retreat</figcaption></figure>
+    <figure><img src="images/patio.webp" alt="Stone fire pit terrace at dusk" loading="lazy" decoding="async"><figcaption>Fire Pit Terrace</figcaption></figure>
+    <figure><img src="images/about.webp" alt="Garden framed by a natural stone wall" loading="lazy" decoding="async"><figcaption>Stone Wall Garden</figcaption></figure>
+    <figure><img src="images/hero.webp" alt="Estate front lawn with mature plantings" loading="lazy" decoding="async"><figcaption>Estate Front Lawn</figcaption></figure>
+    <figure><img src="images/flowers.webp" alt="Perennial border in full bloom" loading="lazy" decoding="async"><figcaption>Perennial Border</figcaption></figure>
   </div>
   <div class="wrap"><p class="hint">Swipe →</p></div>
 </section>
 
 <section class="quote" id="quote">
-  <div class="bg"><img src="images/about.jpg" alt=""></div>
+  <div class="bg"><img src="images/about.webp" alt="" loading="lazy" decoding="async"></div>
   <div class="wrap q-in">
     <div class="rv"><p class="kicker">Free Estimate</p><h2 class="serif">Let's build<br><em>your scene.</em></h2>
       <p class="contact"><a href="tel:+12035812425">(203) 581-2425</a><br><a href="mailto:johnnypearson1717@gmail.com">johnnypearson1717@gmail.com</a><br>Wall Township, NJ</p></div>
     <form class="rv d1" id="f" method="POST" action="https://formsubmit.co/johnnypearson1717@gmail.com">
       <input type="hidden" name="_subject" value="New Bayhollow quote request">
-      <input type="hidden" name="_captcha" value="false">
-      <input name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input name="phone" placeholder="Phone">
-      <textarea name="message" rows="3" placeholder="Tell us about your yard"></textarea>
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input name="name" placeholder="Name" autocomplete="name" aria-label="Name" required>
+      <input type="email" name="email" placeholder="Email" autocomplete="email" aria-label="Email" required>
+      <input type="tel" name="phone" placeholder="Phone" autocomplete="tel" aria-label="Phone">
+      <textarea name="message" rows="3" placeholder="Tell us about your yard" aria-label="Tell us about your yard"></textarea>
       <button type="submit" class="btn">Request My Quote →</button>
     </form>
   </div>
@@ -223,24 +230,35 @@ footer{text-align:center;padding:34px;font-size:.72rem;letter-spacing:.2em;text-
 <script>
 const nav=document.getElementById('nav');
 const par=[...document.querySelectorAll('[data-par]')];
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let ticking=false;
 function onScroll(){
+  ticking=false;
   nav.classList.toggle('solid',scrollY>60);
+  if(still)return;
   const vh=innerHeight;
   par.forEach(el=>{const r=el.parentElement.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;
-    const p=(r.top+r.height/2-vh/2)/vh;el.style.transform=`translateY(${p*-6}%)`});
+    const p=(r.top+r.height/2-vh/2)/vh;el.style.transform=`translate3d(0,${(p*-3).toFixed(2)}%,0)`});
 }
-addEventListener('scroll',onScroll,{passive:true});onScroll();
+addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+addEventListener('resize',onScroll);onScroll();
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');
   io.unobserve(e.target)}}),{threshold:.2});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-const ba=document.getElementById('ba'),aft=ba.querySelector('.after'),h=ba.querySelector('.handle');let drag=false;
-function set(x){const r=ba.getBoundingClientRect();const p=Math.max(0,Math.min(100,(x-r.left)/r.width*100));aft.style.clipPath=`inset(0 0 0 ${p}%)`;h.style.left=p+'%'}
-ba.addEventListener('pointerdown',e=>{drag=true;set(e.clientX)});
-addEventListener('pointermove',e=>{if(drag)set(e.clientX)});
-addEventListener('pointerup',()=>drag=false);
-
+const ba=document.getElementById('ba'),aft=ba.querySelector('.after'),h=ba.querySelector('.handle');let drag=false,pos=50;
+function setPct(p){pos=Math.max(0,Math.min(100,p));aft.style.clipPath=`inset(0 0 0 ${pos}%)`;h.style.left=pos+'%';
+  ba.setAttribute('aria-valuenow',Math.round(pos));ba.setAttribute('aria-valuetext',Math.round(100-pos)+'% after')}
+function set(x){const r=ba.getBoundingClientRect();setPct((x-r.left)/r.width*100)}
+ba.addEventListener('pointerdown',e=>{drag=true;ba.setPointerCapture(e.pointerId);set(e.clientX)});
+ba.addEventListener('pointermove',e=>{if(drag)set(e.clientX)});
+ba.addEventListener('pointerup',()=>drag=false);
+ba.addEventListener('pointercancel',()=>drag=false);
+ba.addEventListener('keydown',e=>{const step=e.shiftKey?10:2;
+  if(e.key==='ArrowLeft'||e.key==='ArrowDown'){setPct(pos-step);e.preventDefault()}
+  else if(e.key==='ArrowRight'||e.key==='ArrowUp'){setPct(pos+step);e.preventDefault()}
+  else if(e.key==='Home'){setPct(0);e.preventDefault()}else if(e.key==='End'){setPct(100);e.preventDefault()}});
 </script>
 </body>
 </html>
